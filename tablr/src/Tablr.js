@@ -1,7 +1,5 @@
 
 
-function App() {
+export const Tablr = () => {
   return (<>TABLR</>)
 }
-
-export default App;
