@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import styles from './tablr.module.css'
 
 export const Tablr = ({
   rows,
@@ -33,5 +34,40 @@ export const Tablr = ({
     thick: '3px',
   };
 
-  return (<>TABLR</>)
+  return (
+    <div className={styles.main}>
+      {headers.map((h, columnIndex) => (
+        <div key={columnIndex} className={styles.column}>
+          <div
+            className={styles.header}
+            style={{
+              color: headerTextColor,
+              padding: cellPaddingMap[cellPadding],
+              backgroundColor: headerBackgroundColor,
+              border: `${borderWidthMap[borderWidth]} solid ${headerBorderColor}`,
+            }}
+          >
+            {h}
+          </div>
+
+          <div className={styles.rows}>
+            {rows.map((r, rowIndex) => (
+              <div
+                key={rowIndex}
+                className={styles.cell}
+                style={{
+                  color: cellTextColor,
+                  backgroundColor: backgroundColor,
+                  padding: cellPaddingMap[cellPadding],
+                  border: `${borderWidthMap[borderWidth]} solid ${cellBorderColor}`,
+                }}
+              >
+                {r[columnIndex]}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }
