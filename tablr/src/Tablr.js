@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import styles from './tablr.module.css'
+import styles from './tablr.module.css';
+import PropTypes from 'prop-types';
 
 export const Tablr = ({
   rows,
@@ -70,4 +71,17 @@ export const Tablr = ({
       ))}
     </div>
   );
-}
+};
+
+Tablr.propTypes = {
+  cellTextColor: PropTypes.string,
+  headerTextColor: PropTypes.string,
+  cellBorderColor: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  headerBorderColor: PropTypes.string,
+  headerBackgroundColor: PropTypes.string,
+  borderWidth: PropTypes.oneOf(['thin', 'medium', 'thick']),
+  cellPadding: PropTypes.oneOf(['small', 'medium', 'large']),
+  headers: PropTypes.arrayOf(PropTypes.string).isRequired,
+  rows: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
+};
