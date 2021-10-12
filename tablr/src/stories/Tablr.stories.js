@@ -3,6 +3,10 @@ import { Tablr } from "../Tablr";
 export default {
   title: 'Tablr - a React Table component',
   component: Tablr,
+  argTypes: {
+    rows: { control: '' },
+    headers: { control: '' },
+  },
 };
 
 const Template = args => <Tablr {...args} />;
@@ -16,4 +20,6 @@ Default.args = {
     ['Row', 'number', 'four', 'right', 'here'],
   ],
   headers: ['Col 1', 'Col 2', 'Col 3', 'Col 4', 'Col 5'],
+  borderWidth: 'medium',
+  cellTextColor: 'black',
 };
