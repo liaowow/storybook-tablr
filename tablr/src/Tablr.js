@@ -19,6 +19,19 @@ export const Tablr = ({
     } else if (!rows.every(r => r.length === headers.length)) {
       throw Error('Row length must equal header length');
     }
-  }, [rows, headers])
+  }, [rows, headers]);
+
+  const cellPaddingMap = {
+    small: '4px',
+    medium: '8px',
+    large: '16px',
+  };
+
+  const borderWidthMap = {
+    thin: '1px',
+    medium: '2px',
+    thick: '3px',
+  };
+
   return (<>TABLR</>)
 }
